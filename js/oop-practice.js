@@ -15,14 +15,41 @@ Create your own String method called findWords that inherits from the native Str
 */
 
 // STEP 1
+class Cat { constructor() {} }
+const Dog = class { constructor() {} }
 
 // STEP 2
+const myCat = new Cat()
+const myDog = new Dog()
 
 // STEP 3
+class Animal {
+    constructor() {}
+
+    displayMessage() {
+        console.log(`The animal has been created`)
+    }
+}
+
+const a = new Animal()
+a.displayMessage()
+
 
 // STEP 4
+class Animal {
+    constructor(message) {
+        this.message = message
+    }
+
+    displayMessage() {
+        console.log(this.message)
+    }
+}
+
+const a = new Animal('The Animal has been created')
 
 // STEP 5
+
 
 // STEP 6
 

@@ -74,8 +74,43 @@ console.log(`Your favorite album is: ${jbox.favoriteAlbum()}`)
 
 //UPDATED CODE
 
+//STEP1
 const albumData = [
     {artist:'Operation Ivy', title:'Energy'},
     {artist:'Blink 182', title:'Dude Ranch'},
     {artist:'New Found Glory', title:'Sticks and Stones'}
 ]
+
+//STEP2
+const select = document.getElementById('album-select')
+
+albumData.forEach((albumInfo, index) => {
+    const option = document.createElement('option')
+    option.value = index
+    option.textContent = `${albumInfo.artist} - ${albumInfo.title}`
+    select.appendChild(option)
+})
+
+//STEP3
+const jbox = new Jukebox ()
+
+albumData.forEach(albumInfo => {
+    const album = new Album(albumInfo.artist, albumInfo.title)
+    jbox.addAlbum(album)
+})
+
+//STEP4
+const playBtn = document.getElementById('play-btn')
+
+playBtn.addEventListener ('click',() => {
+    const index = select.value
+    jbox.albums[index].play()
+    console.log(`Playing ${jbox.albums[index].title}`)
+})
+
+//STEP5
+const favoriteBtn = document.getElementById('favorite-btn')
+const result = document.getElementById('favoriteAlbum')
+favoriteBtn.addEventListener('click', () =>{
+    result.textContent = jbox.favoriteAlbum()
+})

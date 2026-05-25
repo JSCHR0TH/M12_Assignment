@@ -14,6 +14,7 @@ Now, convert all of your properties to private properties. Then, create a privat
 Create your own String method called findWords that inherits from the native String Object. This method should find all instances of a specific word within a provided paragraph of text. It should then alert out to the user the number of time that word was found in the paragraph. Remember, you’ll need to add your method to the String object’s prototype.
 */
 
+/*
 // STEP 1
 class Cat { constructor() {} }
 const Dog = class { constructor() {} }
@@ -49,12 +50,82 @@ class Animal {
 const a = new Animal('The Animal has been created')
 
 // STEP 5
-
+class Animal {
+    constructor (type, breed, color, height, length){
+        this.type = type
+        this.breed = breed
+        this.color = color
+        this.height = height
+        this.length = length
+    }
+}
+const a = new Animal ('dog', 'German Shepard', 'brown', '24inch', '36inch')
 
 // STEP 6
+for (let property in a) {
+    if (a.hasOwnProperty(property)) {
+        console.log(`${property}: ${a[property]}`)
+    }
+}
+
+
 
 // STEP 7
+class Animal {
+    constructor (type, breed, color, height, length){
+        this.type = type
+        this.breed = breed
+        this.color = color
+        this.height = height
+        this.length = length
+    }
+
+
+    speak() {
+        if (this.type === 'dog') {
+            return `The ${this.color} dog is barking!`
+        } else {
+            `The ${this.color} cat is meowing!`
+        }
+    }
+}
+
+const a = new Animal ('dog', 'German Shepard', 'brown', '24inch', '36inch')
+console.log(a.speak())
 
 // STEP 8
+class Animal {
+    #type;
+    #breed;
+    #color;
+    #height;
+    #length;
+
+    constructor (type, breed, color, height, length){
+        this.#type = type
+        this.#breed = breed
+        this.#color = color
+        this.#height = height
+        this.#length = length
+    }
+    #checkType() {
+        return this.#type === 'dog' ? 'dog' : 'cat';
+    }
+
+
+    speak() {
+        return `The ${this.#checkType()} has made a noise!`
+    }
+}
+
+const a = new Animal ('dog', 'German Shepard', 'brown', '24inch', '36inch')
+console.log(a.speak())
+
+const b = new Animal ('cat', 'American Shorthair', 'gray', '10inch', '18inch')
+console.log(b.speak())
 
 // STEP 9
+
+//Sorry, but I have no idea how to approach this
+
+*/
